@@ -43,7 +43,7 @@ header>img {
     height: 20%;
     float: left;
     margin-right: 75px;
-    margin-left: 600px;
+    margin-left: 500px;
     
     object-fit: cover;
     
@@ -103,7 +103,7 @@ header>img {
 }
 .Space2{
     width: 100%;
-    height: 500px;
+    height: 400px;
 
 }
 
@@ -137,11 +137,9 @@ header>img {
 }
 
 .container_2{
+    margin: 0 auto;
     box-sizing: border-box;
-    display: block;
-    width: 100%;
-    
-
+    line-height: 2;
 }
 .container_2>span{
     
@@ -150,8 +148,12 @@ header>img {
 }
 
 .container_3{
-    margin-left: 500px;
+    
+    margin: 0 auto;
     box-sizing: border-box;
+    line-height: 1;
+    display: table;
+    
 }
 
 
