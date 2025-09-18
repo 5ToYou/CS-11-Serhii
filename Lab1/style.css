@@ -29,7 +29,7 @@ header>img {
 
 .menu>div {
     margin: 0 10px;
-    font-size: 28px;
+    font-size: 2em;
 }
 
 .menu>div:hover {
@@ -39,24 +39,18 @@ header>img {
 
 
 .img1{
-    width: 20%;
-    height: 20%;
+    width: 400px;
+    height: 500px;
     float: left;
-    margin-right: 75px;
-    margin-left: 500px;
-    
-    object-fit: fill;
+    object-fit: cover;
     
 }
 
 .img2{
-    width: 30%;
-    height: 30%;
+    width: 400px;
+    height: 500px;
     float: right;
-    margin-right: 75px;
-    margin-left: 75px;
-    
-    object-fit: fill;
+    object-fit: cover;
     
 }
 
@@ -98,12 +92,10 @@ header>img {
 .Space1 {
     width:100%;
     height: 100px;
-    background-color: rgb(255, 255, 255);
 }
 .Space2{
     width: 100%;
-    height: 400px;
-
+    height: 300px;
 }
 
 
@@ -121,42 +113,48 @@ header>img {
 }
 
 .container_1>div {
+    display: block;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     width: 600px;
     height: 375px;
-    margin-left: 500px;
-    padding: 80px 60px;
-}
-
-.container_1>div>div:nth-child(2) {
-    margin: 20px 0;
-    font-size: 23px;
-
-}
-
-.container_1>div>span{
-    align-items: end;
+    line-height: 2;
+    padding: 50px 60px;
+    margin-right: auto;
+    margin-left: 25%;
 }
 
 .container_2{
-    margin: 0 auto;
-    box-sizing: border-box;
-    line-height: 2;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
-.container_2>span{
-    
-    border-top: 100px;
 
+.left-side, .right-side{
+    flex: 1;
+    width: 100%;
+}
+
+.container_2>.left-side{
+   margin-left: 25%;
+}
+.container_2>.right-side{
+    margin-right: 25%;
+    line-height: 2;
 }
 
 .container_3{
+    display: flex;
+    justify-content: center;
+    width: 100%;
     
-    margin: 0 auto;
-    box-sizing: border-box;
-    display: table;
+}
+.container_3>.left-side{
+    margin-left: 25%;
     line-height: 2;
-    
+}
+.container_3>.right-side{
+    margin-right: 25%;
 }
 
 
