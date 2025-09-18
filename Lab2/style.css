@@ -117,3 +117,19 @@ body {
     bottom: 10%;
     left: 5%;
 }
+
+.container_2{
+    width: 100%;
+    display: flex;
+    height: 700px;
+}
+.left-side,.right-side {
+      flex: 1;
+      width: 100%;
+}
+.left-side{
+    background-color: red;
+}
+.right-side{
+    background-color: blue;
+}
