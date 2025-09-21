@@ -1,7 +1,7 @@
 body {
     margin: 0;
     color: whitesmoke;
-    
+    background-color: #293331;
 }
 
 header{
@@ -51,6 +51,7 @@ a{
     min-width: 800px;
     height: 100%;
     margin: auto;
+   
 }
 
 .container_1 {
@@ -113,9 +114,10 @@ a{
 }
 
 .container_3 {
-    background-color: #293331;
     width: 100%;
     height: 700px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 .container_3 .container {
     display: flex;
@@ -132,7 +134,9 @@ a{
     align-items: center;
     position: relative;
 }
-
+.container_3 .left-section>.section-padding{
+   padding: 50px 50px 50px 0;
+}
 .container_3 img {
     width: 75%;
     aspect-ratio: 1/1;
