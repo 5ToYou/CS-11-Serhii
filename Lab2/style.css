@@ -7,7 +7,7 @@ body {
 header{
     font-family: sans-serif;
     margin-top: 20px;
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: bold;
 }
 h5{
@@ -45,6 +45,50 @@ ul{
 a{
     color: whitesmoke;
 }
+
+.Top_menu{
+    width: 100%;
+    height: 100px;
+    background-color: whitesmoke;
+}
+.Top_menu_pos{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    color: black;
+    padding: 20px 0 0px 0;
+}
+.Top_menu_pos>div{
+    font-family: sans-serif;
+    font-size: 1.25em;
+    line-height: 2;
+    padding: 0;
+    margin-left: 50px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.Top_menu_pos>.button{
+    color: black;
+}
+.Top_menu_pos>.button:hover{
+    color: whitesmoke;
+    background-color: black;
+}
+.Top_menu_pos>a{
+    width: 172px;
+    height: 53px;
+   
+}
+.Top_menu_pos>a>img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+
 .container {
     max-width: 1200px;
     width: 90%;
@@ -72,9 +116,10 @@ a{
 }
 
 .container_1>.container>.title {
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: bolder;
     text-align: center;
+    font-family: sans-serif;
 }
 
 .container_1 .counters {
