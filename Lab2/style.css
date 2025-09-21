@@ -4,6 +4,11 @@ body {
     
 }
 
+header{
+    margin-top: 20px;
+    font-size: 4em;
+    font-weight: bold;
+}
 h5{
     font-size: 2em;
     line-height: 1.2;
@@ -13,7 +18,7 @@ h5{
 }
 p{
     font-size: 1.25em;
-    line-height: 2;
+    line-height: 1;
     padding: 0;
     margin-top: 20px;
     margin-bottom: 0;
@@ -149,19 +154,15 @@ p{
     padding: 90px 50px 30px 120px;
     
 }
-.left-side>:first-child{
-    font-size: 4em;
-    font-weight: bold;
-}
 .left-side>.left-list{
     margin-top: 28px;
     margin-bottom: 0;
     
 }
-.left-side>.left-list>.slicer{
+.slicer{
     display: grid;
     grid-template-columns: repeat(2, calc(50% - 5px));
-    gap: var(--gap, 0);
+    gap: 10px;
     
 }
 .boxes{
