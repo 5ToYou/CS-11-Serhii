@@ -285,29 +285,30 @@ a{
 
 .container_4{
     text-align: center;
-    width: 100%;
+    
     
 }
 .container_4>.grid{
     display: grid;
-    align-self: center;
+    align-items: center;
     grid-template-columns: repeat(3, calc(33.3333% - 20px));
     gap: 30px;
+   
+   
 }
 .boxes_2{
     display: flex;
-    width: 360px;
-    height: 430px;
     flex-direction: column;
     background-size: cover;
-    
+    border-radius: 5px;
 }
 .boxes_2>div{
     
     margin-top: 251px;
-    background-repeat: no-repeat;
-    background-image: (rgba(0, 0, 0, 0.55));
+ 
+    background: (rgba(0, 0, 0, 0.55));
 }
 .boxes_2>div>div{
     padding: 25px;
+   
 }
