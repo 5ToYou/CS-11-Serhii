@@ -229,7 +229,7 @@ a{
     margin-bottom: 0;
     
 }
-.slicer{
+.left-list>.grid{
     display: grid;
     grid-template-columns: repeat(2, calc(50% - 5px));
     gap: 10px;
@@ -266,7 +266,7 @@ a{
     font-weight: bold;
     text-transform: uppercase;
     border-color: whitesmoke;
-    border-width: 10px;
+    border-width: 1px;
     background-color: transparent;
     padding: 20px 40px 20px 40px;
     font-size: 1.5em;
@@ -278,6 +278,36 @@ a{
 
 .button:hover {
     background-color: whitesmoke;
-    color: transparent !important;
+    color: inherit !important;
     
+}
+
+
+.container_4{
+    text-align: center;
+    width: 100%;
+    
+}
+.container_4>.grid{
+    display: grid;
+    align-self: center;
+    grid-template-columns: repeat(3, calc(33.3333% - 20px));
+    gap: 30px;
+}
+.boxes_2{
+    display: flex;
+    width: 360px;
+    height: 430px;
+    flex-direction: column;
+    background-size: cover;
+    
+}
+.boxes_2>div{
+    
+    margin-top: 251px;
+    background-repeat: no-repeat;
+    background-image: (rgba(0, 0, 0, 0.55));
+}
+.boxes_2>div>div{
+    padding: 25px;
 }
