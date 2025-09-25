@@ -282,6 +282,26 @@ a{
     width: fit-content;
     border: 2px solid black;
 }
+.button_mini{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-color: black;
+    padding: 10px 30px;
+    background-color: #ff5a5a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 19px auto 0 0;
+    letter-spacing: 1px;
+}
+
+.button_mini:hover{
+    background-color: white;
+    color: black;
+}
 
 .button_black:hover{
     background-color: black;
@@ -367,10 +387,34 @@ a{
 }
 
 .boxes_3{
-    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+   
     width: 270px;
     height: 360px;
     background-position: center;
     background-size: cover;
     text-align: left;
+    justify-content: flex-end;
+    
+}
+.boxes_3>.text{
+    padding: 18px 30px 30px;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+}
+
+.text div:first-child{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.text div:nth-child(2){
+    font-size: 1.875rem;
+    margin-top: 20px;
+    color: #ff5a5a;
+    font-weight: bolder;
+}
+.text div:nth-child(3){
+    font-size: 0.875rem;
+    margin-top: 8px;
 }
