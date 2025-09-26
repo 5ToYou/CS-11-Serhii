@@ -385,16 +385,16 @@ a{
     line-height: unset;
 }
 
-.space_1{
+.About{
     width: 100%;
     height: 420px;
     text-align: center;
 }
-.space_1>div{
+.About>div{
     padding: 95px 30px 30px;
     
 }
-.space_1>div>:last-child{
+.About>div>:last-child{
     margin: 20px auto 0;
     width: 720px;
 }
