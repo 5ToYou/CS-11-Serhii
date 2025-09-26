@@ -340,18 +340,18 @@ a{
 
 .container_4{
     text-align: center;
-    
-    
 }
-.container_4>.grid{
+.container_4>.grid_pos{
+    width: 1140px;
+    margin: auto;
+    margin-top: 50px;
+}
+.container_4>.grid_pos>.grid{
     display: grid;
-    align-items: center;
     grid-template-columns: repeat(3, calc(33.3333% - 20px));
     gap: 30px;
-    width:80%;
-    margin: auto;
-   margin-top: 50px;
 }
+
 .boxes_2{
     display: flex;
     flex-direction: column;
@@ -380,6 +380,10 @@ a{
     margin-top: 0;
     line-height: unset;
 }
+.boxes_2 p {
+    margin-top: 15px;
+    line-height: unset;
+}
 
 .space_1{
     width: 100%;
@@ -400,14 +404,15 @@ a{
     height: 900px;
     background-color: white;
 }
-.container_5>.grid{
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(4, calc(25% - 12px));
-    gap: 16px;
-    width:80%;
+.container_5>.grid_pos{
+    width: 1140px;
     margin: auto;
-    gap: var(--gap, 0);
+}
+.container_5>.grid_pos>.grid{
+    display: grid;
+    grid-template-columns: repeat(4, calc(25% - 12px));
+    gap: 15px;
+    
 }
 
 .boxes_3{
@@ -453,23 +458,24 @@ a{
     display: flex;
     flex-direction: column;
     margin: auto;
+    padding-top: 50px;
     width: 60%;
-    height: 560px;
+   
 }
 .container_6>.margin>.Top_fragment{
     color: black;
     display: flex;
 }
-.container_6>.margin>.Top_fragment div, p{
-    padding: 50px 30px;
+.container_6>.margin>.Top_fragment div{
+    margin-right: 50px;
+    font-size: 3rem;
 }
 
 .container_6>.margin>.grid{
     display: grid;
     grid-auto-columns: calc(14.2857% - 8.57143px);
     grid-template-columns: repeat(7, calc(14.2857% - 8.57143px));
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 100px;
     gap: 10px;
 }
 
@@ -498,6 +504,7 @@ a{
     width: 1140px;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 .container_7>.margin>.grid_pos>.grid{
     display: grid;
