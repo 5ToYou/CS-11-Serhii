@@ -1,0 +1,135 @@
+body{
+    font-family: 'Open Sans',sans-serif;
+    background: #4F4760;
+}
+.title{
+    margin-top: 50px;
+    font-size: 4em;
+    font-weight: bold;
+}
+.container_1{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    
+}
+.pos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1140px;
+    height: 100%;
+    margin: auto;
+}
+.container_2>.pos{
+    width: auto;
+}
+.container_1>.pos>img{
+    width: 75px;
+    height: 40px;
+    margin-right: auto;
+}
+.menu>.hover{
+    margin-left: 25px;
+}
+.hover:hover{
+    color: #4cb992;
+}
+
+.container_2{
+    color: white;
+    text-align: center;
+}
+.container_2>div:nth-child(2){
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.box.color_1{
+    background-color: #8b74ba;
+}
+.button.color_1{
+    color: #8b74ba;
+}
+.box.color_2{
+    background-color: #4cb992;
+}
+.button.color_2{
+    color: #4cb992;
+}
+.box.color_3{
+    background-color: #3499e1;
+}
+.button.color_3{
+    color: #3499e1;
+}
+.box.box.color_4{
+    background-color: #eb9d53;
+}
+.button.color_4{
+    color: #eb9d53;
+}
+
+.top.color_1{
+    background-color: #6f608d;
+}
+.top.color_2{
+    background-color: #477665;
+}
+.top.color_3{
+    background-color: #467fa7;
+}
+.top.color_4{
+    background-color: #ae8157;
+}
+
+
+
+.box{
+    width: 280px;
+    height: 500px;
+    border-radius: 15px;
+}
+.box>div:last-child{
+    margin-top: 30px;
+}
+.button{
+    background-color: white;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    border-radius: 25px;
+    padding: 12px 42px 13px 41px;
+}
+.top{
+    padding: 20px 20px 20px 20px;
+    border-radius: 15px;
+    height: 150px;
+}
+.top>div:first-child{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.top>div:nth-child(2){
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.top>div:nth-child(3){
+    font-size: 1.25em;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+.bottom{
+    padding: 20px 20px 20px 20px;
+    line-height: 2;
+    letter-spacing: 2px;
+    color: whitesmoke;
+}
