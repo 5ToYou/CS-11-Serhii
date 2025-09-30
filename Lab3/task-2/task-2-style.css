@@ -1,0 +1,55 @@
+
+img{
+    width: 375px;
+    height: 350px;
+}
+
+.pos{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    gap: 30px;
+
+}
+
+
+
+
+.box_1{
+    background-color: #bfa065;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    box-sizing: border-box;
+    color: white;
+}
+
+.box_2{
+    
+}
+
+.box_3{
+    
+}
+
+.box_4{
+    color: #bfa065;
+}
+
+.box_5{
+    
+}
+
+.box_6{
+    
+}
+
+.box_7{
+    background-color: white;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
