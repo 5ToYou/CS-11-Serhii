@@ -63,6 +63,14 @@ img{
     font-size: 1.10em;
 }
 
+.box_2>img{
+    background-image: url('./imgs/1.jpeg');
+}
+.box_2>img:hover{
+    background-image: url('./imgs/CarTheRockReal.png');
+}
+
+
 .box_4{
     color: #bfa065;
     font-size: 3.5em;
