@@ -10,9 +10,15 @@
     
 }
 
+.grid img{
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+}
+
 .box_center{
-    width: 535px;
-    height: 365px;
+    width: 160%;
+    height: 120%;
     background-color: white;
     color: black;
     z-index: 1;
@@ -21,6 +27,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
+    transform-origin: center;
+    justify-self: center;
+    
 }
 .box_center>div:first-child{
     margin-top: 35px;
@@ -46,4 +56,52 @@
 .box_center>div>a:hover{
     background-color: #ef342b;
     color: #e6e6e6;
+}
+
+
+.box_1 img{
+    margin-top: 180px;
+    margin-left: 70px;
+    width: 262px;
+    height: 308px;
+}
+
+.box_2 img{
+    height: 350px;
+    margin-top: 150px;
+}
+
+.box_3 img{
+    margin-top: 200px;
+    margin-left: 20px;
+    width: 262px;
+    height: 308px;
+}
+
+.box_4 img{
+    width: 130%;
+}
+
+.box_6 img{
+    width: 120%;
+    margin-top: 30px;
+}
+
+.box_7 img{
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 280px;
+    height: 170px;
+    
+}
+
+.box_8 img{
+    
+}
+
+.box_9 img{
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 222px;
+    height: 228px;
 }
