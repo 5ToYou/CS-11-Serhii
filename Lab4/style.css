@@ -26,10 +26,31 @@ body{
 }
 
 .box_2{
-    background-color: black;
+    background-image: url(./imgs/clouds-bg.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 3%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
 }
 
+.box_2>div:first-child{
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 40%;
+}
+.box_2>div:nth-child(2){
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+.box_2>div:last-child{
+    font-size: 1em;
+    color: gray;
+  
+}
 .box_3{
     grid-row: 2/4;
     grid-column: 3/4;
@@ -40,6 +61,21 @@ body{
 .box_4{
     background-color: black;
     border-radius: 3%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+   
+    
+}
+
+.box_4>div:first-child{
+    color: gray;
+    font-size: 1em;
+}
+.box_4>div:last-child{
+    font-size: 6em;
 }
 
 .box_5{
@@ -66,4 +102,52 @@ body{
         grid-template-rows: 2fr 1fr 1.5fr 1.5fr;
     }
     
+    .box_1{
+        grid-row: 1/2;
+        grid-column: 1/4;
+    }
+    .box_2{
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+    .box_3{
+        grid-row: 4/5;
+        grid-column: 1/4;
+    }
+    .box_4{
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    .box_5{
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+}
+
+@media screen and  (max-width: 800px) {
+    .grid{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
+    }
+
+    .box_1{
+        grid-row: 1/2;
+        grid-column: 1/4;
+    }
+    .box_2{
+        grid-row: 4/5;
+        grid-column: 1/4;
+    }
+    .box_3{
+        grid-row: 5/6;
+        grid-column: 1/4;
+    }
+    .box_4{
+        grid-row: 2/3;
+        grid-column: 1/4;
+    }
+    .box_5{
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
 }
