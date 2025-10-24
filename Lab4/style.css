@@ -33,7 +33,7 @@ body{
 }
 
 .box_1>div{
-    padding: 0 0 25px 25px;
+    padding: 0 0 35px 35px;
 }
 .box_1>div>div:first-child{
     font-size: 2em;
@@ -41,7 +41,7 @@ body{
 }
 .box_1>div>div:nth-child(2){
     font-size: 1em;
-    color: rgb(235, 235, 235);
+    color: rgb(100, 100, 100);
     margin-top: 25px;
 }
 
@@ -52,23 +52,22 @@ body{
     background-size: cover;
     border-radius: 25px;
     color: white;
+    padding: 35px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 25px;
+    justify-content: space-between;
 }
 
 .box_2>div:first-child{
     text-align: center;
     font-size: 5em;
-    margin-bottom: 40%;
     font-weight: bold;
+    margin-top: 50px;
 }
-.box_2>div:nth-child(2){
+.bottom>div:first-child{
     font-size: 2em;
-    
 }
-.box_2>div:last-child{
+.bottom>div:last-child{
     font-size: 1em;
     color: rgb(235, 235, 235);
     margin-top: 25px;
@@ -79,20 +78,25 @@ body{
     grid-column: 3/4;
     background-color: white;
     border-radius: 25px;
-    padding: 25px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
-.box_3>div:first-child{
+.box_3>.top>div:first-child{
     font-size: 2em;
     font-weight: bolder;
 }
-.box_3>div:nth-child(2){
+.box_3>.top>div:nth-child(2){
     margin-top: 25px;
-    color: rgb(235, 235, 235);   
+    color: rgb(100, 100, 100);  
 }
 
 
-.message_animation{
+.box_3>.message_animation{
+    margin: auto;
     position: relative;
     animation-name: draggingAnimation;
     animation-duration: 2s;
@@ -107,45 +111,31 @@ body{
     font-weight: bolder;
     display: flex;
     justify-content: center;
+    color: black;
 }
 
 .message_animation>.message:first-child{
-    transform: rotate(-5deg);
-    position: absolute;
-    z-index: 1;
-    left: 0;
+    transform: rotate(10deg);
+    margin-left: 200px;
 }
 .message_animation>.message:nth-child(2){
-    transform: rotate(10deg);
-    animation-delay: 2s;
-    position: absolute;
-    z-index: 1;
-    right: 0;
+    transform: rotate(-5deg);
+    margin-bottom: 25px;
 }
 .message_animation>.message:nth-child(3){
     transform: rotate(3deg);
-    animation-delay: 2s;
-    position: absolute;
-    z-index: 1;
-    top: 100px;
-    right: 100px;
+    margin-left: 50px;
+    margin-top: 25px;
     font-size: 2em;
     width: 250px;
 }
 .message_animation>.message:nth-child(4){
     transform: rotate(10deg);
-    animation-delay: 2s;
-    position: absolute;
-    z-index: 1;
-    top: 200px;
+    margin-top: 25px;
 }
 .message_animation>.message:last-child{
     transform: rotate(-5deg);
-    animation-delay: 2s;
-    position: absolute;
-    z-index: 1;
-    top: 225px;
-    right: 0;
+    margin-left: 200px;
 }
 
 .box_4{
@@ -156,8 +146,7 @@ body{
     flex-direction: column;
     text-align: center;
     justify-content: center;
-   
-    
+    padding: 35px;
 }
 
 .box_4>div:first-child{
@@ -174,7 +163,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25px;
+    padding: 35px;
 }
 
 .box_5>div:first-child{ 
@@ -183,7 +172,7 @@ body{
 }
 .box_5>div:last-child{ 
     font-size: 18px;
-    color: rgb(182, 180, 180);
+    color: rgb(100, 100, 100);
 }
 
 #dragging {animation-timing-function: ease-in-out;}
