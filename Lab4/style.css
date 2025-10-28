@@ -1,14 +1,14 @@
 *{box-sizing: border-box;}
 
 .grid{
-    width: 80%;
+    height: 1000px;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 50% 20% 30%;
     column-gap: 10px;
     row-gap: 10px;
     aspect-ratio: 3/2;
-    margin-top: 25px;
 }
 
 
@@ -19,6 +19,8 @@ body{
     background-color: rgb(235, 235, 235);
     margin: 0;
     font-family: sans-serif;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .box_1{
@@ -29,22 +31,67 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    justify-content: flex-end;
 }
 
-.box_1>div{
-    padding: 0 0 35px 35px;
+.container{
+    display: flex;
+    justify-content: end;
 }
-.box_1>div>div:first-child{
+.container>.text{
+    padding: 0 0 35px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.container>.text>div:first-child{
     font-size: 2em;
     font-weight: bolder;
 }
-.box_1>div>div:nth-child(2){
+.container>.text>div:nth-child(2){
     font-size: 1em;
     color: rgb(100, 100, 100);
     margin-top: 25px;
 }
 
+.Pmessage{
+    padding: 10px 15px;
+    border-radius: 20px;
+    width: 70%;
+    font-size: 1em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.Pmessage.black {
+    transform: rotate(-3deg);
+    background: black;
+    color: white;
+    right: 50px;
+}
+
+.Pmessage.white {
+    transform: rotate(3deg);
+    background: rgb(235, 235, 235);
+    color: black;
+}
+
+.phone {
+    margin-right: calc(10px + 5%);
+    padding: 25px;
+    height: 550px;
+    background-image: linear-gradient(180deg,rgba(42, 123, 155, 0) 0%, rgba(1, 13, 6, 0) 85%, rgba(255, 255, 255, 1) 100%) , url("./imgs/mobile-bg.png");
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+.phone>div>img{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
 
 .box_2{
     background-image: url(./imgs/clouds-bg.avif);
@@ -210,6 +257,12 @@ body{
         grid-row: 2/3;
         grid-column: 2/3;
     }
+
+    .phone{
+        height: 500px;
+        margin: 0;
+        margin-top: 25px;
+    }
 }
 
 @media screen and  (max-width: 800px) {
@@ -237,5 +290,9 @@ body{
     .box_5{
         grid-row: 3/4;
         grid-column: 1/4;
+    }
+
+    .phone{
+        height: 400px;
     }
 }
