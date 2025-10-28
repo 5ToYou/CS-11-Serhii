@@ -54,11 +54,10 @@ body{
 }
 
 .Pmessage{
-    padding: 10px 15px;
-    border-radius: 20px;
+    padding: 10px;
+    border-radius: 50px;
     width: 70%;
     font-size: 1em;
-    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -66,19 +65,21 @@ body{
     transform: rotate(-3deg);
     background: black;
     color: white;
-    right: 50px;
+    margin-right: 100px;
 }
 
 .Pmessage.white {
     transform: rotate(3deg);
     background: rgb(235, 235, 235);
     color: black;
+    margin-left: 100px;
 }
 
 .phone {
-    margin-right: calc(10px + 5%);
     padding: 25px;
     height: 550px;
+    width: auto;
+    background-position: top;
     background-image: linear-gradient(180deg,rgba(42, 123, 155, 0) 0%, rgba(1, 13, 6, 0) 85%, rgba(255, 255, 255, 1) 100%) , url("./imgs/mobile-bg.png");
     background-repeat: no-repeat;
     display: flex;
@@ -109,7 +110,7 @@ body{
     text-align: center;
     font-size: 5em;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .bottom>div:first-child{
     font-size: 2em;
@@ -193,7 +194,7 @@ body{
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    padding: 35px;
+    padding: 25px;
 }
 
 .box_4>div:first-child{
@@ -201,7 +202,7 @@ body{
     font-size: 1em;
 }
 .box_4>div:last-child{
-    font-size: 5em;
+    font-size: 4.5em;
 }
 
 .box_5{
@@ -245,6 +246,10 @@ body{
         grid-row: 3/4;
         grid-column: 1/4;
     }
+    .box_2>div:first-child{
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
     .box_3{
         grid-row: 4/5;
         grid-column: 1/4;
@@ -263,6 +268,28 @@ body{
         margin: 0;
         margin-top: 25px;
     }
+
+    .box_3>.message_animation{
+        margin-top: 50px;
+    }
+
+    .message_animation>.message:first-child{
+        margin-left: 250px;
+    }
+    .message_animation>.message:nth-child(2){
+        margin-bottom: 25px;
+    }
+    .message_animation>.message:nth-child(3){
+        margin-left: 100px;
+        margin-top: 25px;
+    }
+    .message_animation>.message:nth-child(4){
+        margin-top: 25px;
+    }
+    .message_animation>.message:last-child{
+        margin-left: 300px;
+    }
+    
 }
 
 @media screen and  (max-width: 800px) {
