@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ZUP - Agency WEbsite Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid">
+        <div class="box_1">
+            <div class="container">
+
+                <div class="text">
+                    <div>Effortless Collaboration</div>
+                    <div>Real-time updates and fast replies that make you feel like we’re right there with you.</div>
+                </div>
+
+                <div class="phone">
+                    <div class="Pmessage black">Just saw the first draft – this is 🔥🔥 🔥</div>
+                    <div class="Pmessage white">Yes! So glad you like it. Want me to prep a second direction too?</div>
+                    <div class="Pmessage black">That would be amazing. You're killing it.</div>
+                    <div class="Pmessage white">Already on it. You'll have it by tomorrow afternoon.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="box_2">
+            <div>+85%</div>
+            <div class="bottom">
+                <div>Higher Conversion Rates</div>
+                <div>Designs and content that keep people clicking, scrolling, and sharing.</div>
+            </div>
+        </div>
+
+        <div class="box_3">
+            <div class="top">
+                <div>Stronger Online Presence</div>
+                <div>Rank higher, get found faster, and stay top-of-mind.</div>
+            </div>
+   
+            <div class="message_animation">
+
+                <div id="dragging" class="message" style="--rotateValue: 10deg; --delay: 0.2s;--duration: 2s">+200 Countries</div>
+                <div id="dragging" class="message" style="--rotateValue: -5deg; --delay: 0.3s;--duration: 2.4s">+3k Downloads</div>
+                <div id="dragging" class="message" style="--rotateValue: 3deg; --delay: 0.1s;--duration: 1.2s">+30k Followers</div>
+                <div id="dragging" class="message" style="--rotateValue: 10deg; --delay: 0.6s;--duration: 3s">+240k Likes</div>
+                <div id="dragging" class="message" style="--rotateValue: -5deg; --delay: 0.45s;--duration: 2.5s">+1M Impressions</div>
+
+            </div>
+
+        </div>
+
+        <div class="box_4">
+            <div>Projects launched in as little as</div>
+            <div>3 weeks</div>
+        </div>
+
+        <div class="box_5">
+            <div>Increased Sales</div>
+            <div>Clear messaging and conversion-focused design that drives real revenue.</div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+
+*{box-sizing: border-box;}
+
+.grid{
+    height: 1000px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 50% 20% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+    aspect-ratio: 3/2;
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+    font-family: sans-serif;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.box_1{
+    grid-row: 1/3;
+    grid-column: 1/3;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.container{
+    display: flex;
+    justify-content: end;
+}
+.container>.text{
+    padding: 0 0 35px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.container>.text>div:first-child{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.container>.text>div:nth-child(2){
+    font-size: 1em;
+    color: rgb(100, 100, 100);
+    margin-top: 25px;
+}
+
+.Pmessage{
+    padding: 10px;
+    border-radius: 50px;
+    width: 70%;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+}
+.Pmessage.black {
+    transform: rotate(-3deg);
+    background: black;
+    color: white;
+    margin-right: 100px;
+}
+
+.Pmessage.white {
+    transform: rotate(3deg);
+    background: rgb(235, 235, 235);
+    color: black;
+    margin-left: 100px;
+}
+
+.phone {
+    padding: 25px;
+    height: 550px;
+    min-width: 400px;
+    width: auto;
+    background-position: top;
+    background-image: linear-gradient(180deg,rgba(42, 123, 155, 0) 0%, rgba(1, 13, 6, 0) 85%, rgba(255, 255, 255, 1) 100%) , url("./imgs/mobile-bg.png");
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+.phone>div>img{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.box_2{
+    background-image: url(./imgs/clouds-bg.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 25px;
+    color: white;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box_2>div:first-child{
+    text-align: center;
+    font-size: 5em;
+    font-weight: bold;
+    margin-top: 100px;
+}
+.bottom>div:first-child{
+    font-size: 2em;
+}
+.bottom>div:last-child{
+    font-size: 1em;
+    color: rgb(235, 235, 235);
+    margin-top: 25px;
+}
+
+.box_3{
+    grid-row: 2/4;
+    grid-column: 3/4;
+    background-color: white;
+    border-radius: 25px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.box_3>.top>div:first-child{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.box_3>.top>div:nth-child(2){
+    margin-top: 25px;
+    color: rgb(100, 100, 100);  
+}
+
+
+.box_3>.message_animation{
+    margin: auto;
+}
+.message{
+    background-color: rgb(235, 235, 235);
+    padding: 10px 0px 10px 0px;
+    border-radius: 50px;
+    width: 150px;
+    font-size: 1.1em;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    color: black;
+
+    animation-iteration-count: infinite;
+    animation-name: draggingAnimation;
+    animation-duration:var(--duration);
+    animation-delay: var(--delay);
+}
+
+.message_animation>.message:first-child{
+    margin-left: 200px;
+}
+.message_animation>.message:nth-child(2){
+    margin-bottom: 25px;
+}
+.message_animation>.message:nth-child(3){
+    margin-left: 50px;
+    margin-top: 25px;
+    font-size: 2em;
+    width: 250px;
+}
+.message_animation>.message:nth-child(4){
+    margin-top: 25px;
+}
+.message_animation>.message:last-child{
+    margin-left: 200px;
+}
+
+.box_4{
+    background-color: black;
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.box_4>div:first-child{
+    color: rgb(235, 235, 235);
+    font-size: 1em;
+}
+.box_4>div:last-child{
+    font-size: 4.5em;
+}
+
+.box_5{
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px;
+}
+
+.box_5>div:first-child{ 
+    font-size: 2em;
+    font-weight: bolder;
+}
+.box_5>div:last-child{ 
+    font-size: 18px;
+    color: rgb(100, 100, 100);
+}
+
+#dragging {animation-timing-function: ease-in-out;}
+
+@keyframes draggingAnimation {
+    0%,100% {
+        transform: translateY(0) rotate(var(--rotateValue));
+    }
+    40% {
+        transform: translateY(10px) rotate(var(--rotateValue));
+    }
+    80% { transform: translateY(-10px) rotate(var(--rotateValue));}
+}
+
+
+@media screen and  (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 2fr 1fr 1.5fr 1.5fr;
+    }
+    
+    .box_1{
+        grid-row: 1/2;
+        grid-column: 1/4;
+        height: 525px;
+    }
+    .box_2{
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+    .box_2>div:first-child{
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+    .box_3{
+        grid-row: 4/5;
+        grid-column: 1/4;
+    }
+    .box_4{
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    .box_5{
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
+    .phone{
+        height: 500px;
+        margin: 0;
+        margin-top: 25px;
+    }
+
+    .box_3>.message_animation{
+        margin-top: 50px;
+    }
+
+    .message_animation>.message:first-child{
+        margin-left: 250px;
+    }
+    .message_animation>.message:nth-child(2){
+        margin-bottom: 25px;
+    }
+    .message_animation>.message:nth-child(3){
+        margin-left: 100px;
+        margin-top: 25px;
+    }
+    .message_animation>.message:nth-child(4){
+        margin-top: 25px;
+    }
+    .message_animation>.message:last-child{
+        margin-left: 300px;
+    }
+    
+}
+
+@media screen and  (max-width: 800px) {
+    .grid{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
+    }
+
+    .box_1{
+        grid-row: 1/2;
+        grid-column: 1/4;
+    }
+    .box_2{
+        grid-row: 4/5;
+        grid-column: 1/4;
+    }
+    .box_3{
+        grid-row: 5/6;
+        grid-column: 1/4;
+    }
+    .box_4{
+        grid-row: 2/3;
+        grid-column: 1/4;
+    }
+    .box_5{
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+
+    .phone{
+        height: 400px;
+    }
+}
