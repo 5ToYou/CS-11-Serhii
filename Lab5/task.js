@@ -68,11 +68,25 @@ console.log(isPalindrome("racecar"));
 
 
 //6.
-const cbutton = document.getElementById("cbutton");
-
 function myFunction(){
-    var value = document.getElementById("value");
-    var output = document.getElementById("end");
-    output.innerHTML = value.value;
+    var num = parseInt(document.getElementById("Input").value);
+
+    const romanNumerals = [
+                ["M",1000], ["CM",900], ["D",500], ["CD",400],
+                ["C",100], ["XC",90], ["L",50], ["XL",40],
+                ["X",10], ["IX",9], ["V",5], ["IV",4], ["I",1]
+    ];
+
+    let result = "";
+    let tempNum = num;
+
+    for (let [roman, value] of romanNumerals) {
+        while (tempNum >= value) {
+            result += roman;
+            tempNum -= value;
+        }
+    }
+
+    document.getElementById("end").textContent = result;
 }
 
