@@ -12,6 +12,7 @@ function countVowels(str){
 }
 console.log(countVowels("Hello World"));
 
+
 //2.
 function secondLargest(arr){
     largest = -Infinity;
@@ -30,6 +31,34 @@ function secondLargest(arr){
 console.log(secondLargest([10, 40, 30, 20, 50]));
 
 
+//3.
+function isAnagram(str1, str2){
+    if (str1.length !== str2.length) return false;
+
+    return str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+console.log(isAnagram("listen", "silent"));
+
+
+//4.
+function twoSum(arr, target){
+
+}
+console.log(twoSum([2, 7, 11, 15], 9));
+
+
+//5.
+function isPalindrome(str){
+    let myString = str
+    let reversed = myString.split('').reverse().join('');
+    if (reversed == str){
+        return true
+    }
+    else{
+        return false
+    }
+}
+console.log(isPalindrome("racecar"));
 
 
 //6.
