@@ -69,7 +69,7 @@ console.log(isPalindrome("racecar"));
 
 //6.
 function myFunction(){
-    var num = parseInt(document.getElementById("Input").value);
+    var num = (document.getElementById("Input").value);
 
     const romanNumerals = [
                 ["M",1000], ["CM",900], ["D",500], ["CD",400],
