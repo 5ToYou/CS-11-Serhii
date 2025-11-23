@@ -9,19 +9,28 @@
 </head>
 <body>
 
-    <div class="box">
-        <div class="video_box">
-            <video id="video">
-                <source src="./folder/ssstwitter.com_1703086709451_1_3.mp4" type="video/mp4">
-            </video>
-        </div>
+    <audio id="correct">
+        <source src="./sounds/correct.mp3">
+    </audio>
+    <audio id="error">
+        <source src="./sounds/error.mp3">
+    </audio>
 
-        <audio id="audio" src="./folder/BLOODY STREAM.mp3"></audio>
+    <div class="button_box">
+        <div>REGISTER FORM</div>
+        <input id="register_username" placeholder="Enter username">
+        <input id="register_password" placeholder="Enter password">
+        <input id="register_repeat_password" placeholder="Repeat password">
+        <button class="button" onclick="check_register_form()">submit</button>
+        <div class="output" id="register_output"></div>
+    </div>
 
-        <div class="button_box">
-            <div class="button" id="video_button" onclick="Videoplay()">video</div>
-            <div class="button" id="audio_button" onclick="Audioplay()">audio</div>
-        </div>
+    <div class="button_box">
+        <div>LOGIN FORM</div>
+        <input id="login_username" placeholder="Enter username">
+        <input id="login_password" placeholder="Enter password">
+        <button class="button" onclick="check_login_form()">submit</button>
+        <div class="output" id="login_output"></div>
     </div>
 
 </body>

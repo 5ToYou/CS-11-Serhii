@@ -1,33 +1,66 @@
+let data = [];
 
+var correct = document.getElementById("correct")
+var error = document.getElementById("error")
 
-function Videoplay(){
-    const Myvideo = document.getElementById("video");
-    let video_button = document.getElementById("video_button");
+function check_register_form(){
+    var username = document.getElementById("register_username").value;
+    var password = document.getElementById("register_password").value;
+    var repeat_password = document.getElementById("register_repeat_password").value;
+    var output = document.getElementById("register_output");
 
-    if (Myvideo.paused){
-        Myvideo.play(); 
-        video_button.textContent = "playing";
-        console.log("Video is playing");
-    }else{
-        Myvideo.pause();
-        video_button.textContent = "video"
-        console.log("Video is paused");  
-    };
-}
-
-
-function Audioplay(){
-    const Myaudio = document.getElementById("audio");
-    let audio_button = document.getElementById("audio_button");
-
-    if (Myaudio.paused){
-        Myaudio.play();
-        audio_button.textContent = "playing";
-        console.log("Audio is playing");
-    }else{
-        Myaudio.pause();
-        audio_button.textContent = "audio";
-        console.log("Audio is paused");  
+    if (username.length < 1 && password.length < 1) {
+        output.innerHTML = "";
+        return;
     }
-    
+    if (username.length < 1) {
+        output.innerHTML = "Enter the username";
+        return;
+    }
+    if (username.length < 3) {
+        output.innerHTML = "Username too short";
+        return;
+    }
+    if (password.length < 1) {
+        output.innerHTML = "Enter the password";
+        return;
+    }
+    if (password.length < 3) {
+        output.innerHTML = "Password too short";
+        return;
+    }
+    if (password !== repeat_password) {
+        output.innerHTML = "Passwords don't match";
+        return;
+    }
+
+
+    output.innerHTML = "You registered";
+    data = [username, password];
+    window.location.href = "main.html";
+    console.log(data);
+    return data
 }
+
+function check_login_form(){
+    var username = document.getElementById("login_username").value;
+    var password = document.getElementById("login_password").value;
+    var output = document.getElementById("login_output");
+
+    if (data[0] === username && data[1] === password) {
+        output.innerHTML = "You logged in";
+        window.location.href = "main.html";
+    } else {
+        output.innerHTML = "Incorrect username or password";
+    }
+}
+
+if(data[0]){
+    document.getElementById("user").textContent = data[0];
+}
+
+
+function log_off(){
+    window.location.href = "index.html";
+}
+
