@@ -36,6 +36,9 @@ random_btn.onclick = function(){
     var random_answer = Math.floor(Math.random() * (max_number - min_number + 1));
     random_num.textContent = random_answer;
 
+    const audio = new Audio("./audio/correct.mp3");
+    audio.play();
+
     random_num.classList.add('RGB_text');
     random_num.addEventListener("animationend", function() {
         random_num.classList.remove("RGB_text");

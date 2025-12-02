@@ -26,14 +26,10 @@ body{
     align-items: center;
     justify-content: space-between;
     color: white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
 }
 
 .random_num_style{
     font-size: 3em;
-    font-family: sans-serif;
     letter-spacing: 5px;
     color: black;
 }
@@ -42,8 +38,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 25px;
     padding: 10px;
     background-color: black;
     color: white;
@@ -58,11 +52,12 @@ body{
 
 
 @keyframes text_animation{
-    from{color: white;}
-    to{color: black;}
+    0%{color: white;}
+    100%{color: black;}
 }
 
 .RGB_text{
     animation-name: text_animation;
     animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
