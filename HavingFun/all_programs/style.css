@@ -1,5 +1,68 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .program{
     margin-top: 100px;
     margin-bottom: 100px;
-    background-color: rgb(219, 238, 255);
+}
+
+
+.program.random{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.box{
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(180deg,rgba(182, 145, 197, 1) 17%, rgba(150, 145, 197, 1) 52%, rgba(83, 96, 237, 1) 100%);
+    border-radius: 10px;
+    padding: 25px;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.random_num_style{
+    font-size: 3em;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    color: black;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 25px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+}
+
+
+@keyframes text_animation{
+    from{color: white;}
+    to{color: black;}
+}
+
+.RGB_text{
+    animation-name: text_animation;
+    animation-duration: 0.5s;
 }

@@ -34,5 +34,10 @@ const random_num = document.getElementById("random_num");
 
 random_btn.onclick = function(){
     var random_answer = Math.floor(Math.random() * (max_number - min_number + 1));
-    random_num.textContent = "your random number is " + random_answer;
+    random_num.textContent = random_answer;
+
+    random_num.classList.add('RGB_text');
+    random_num.addEventListener("animationend", function() {
+        random_num.classList.remove("RGB_text");
+    });
 }
