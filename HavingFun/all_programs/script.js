@@ -39,8 +39,11 @@ random_btn.onclick = function(){
     const audio = new Audio("./audio/correct.mp3");
     audio.play();
 
-    random_num.classList.add('RGB_text');
-    random_num.addEventListener("animationend", function() {
-        random_num.classList.remove("RGB_text");
-    });
+    random_num.classList.remove("RGB_text");
+    setTimeout(function() {
+        random_num.classList.add("RGB_text");
+    }, 0);
+
+
 }
+
