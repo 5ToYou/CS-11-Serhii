@@ -1,28 +1,25 @@
 //program checkbox
 const my_check_box = document.getElementById("my_check_box");
-const visa_btn = document.getElementById("visa_btn");
-const master_btn = document.getElementById("master_btn");
-const pay_btn = document.getElementById("pay_btn");
+const Kris_check = document.getElementById("Kris_check");
+const Susie_check = document.getElementById("Susie_check");
+const Ralsei_check = document.getElementById("Ralsei_check");
+const Spamton_check = document.getElementById("Spamton_check");
 const my_submit = document.getElementById("my_submit");
-const sub_result = document.getElementById("sub_result");
-const payment_result = document.getElementById("payment_result");
+const choice_result = document.getElementById("choice_result");
 
 
 my_submit.onclick = function(){
-    if(my_check_box.checked){
-        sub_result.textContent = "you are subed";
-    }else{
-        sub_result.textContent = "not subed";
-    }
     
-    if(visa_btn.checked){
-        payment_result.textContent = "paying with visa"
-    }else if(master_btn.checked){
-        payment_result.textContent = "paying with master"
-    }else if(pay_btn.checked){
-        payment_result.textContent = "paying with pay"
+    if(Kris_check.checked){
+        choice_result.textContent = "You picked Kris"
+    }else if(Susie_check.checked){
+        choice_result.textContent = "You picked Susie"
+    }else if(Ralsei_check.checked){
+        choice_result.textContent = "You picked Ralsei"
+    }else if(Spamton_check.checked){
+        choice_result.textContent = "You picked Spamton"
     }else{
-        payment_result.textContent = "choose payment method"
+        choice_result.textContent = "Only one bro"
     }
 }
 

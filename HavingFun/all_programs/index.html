@@ -8,23 +8,26 @@
 </head>
 <body>
     <div class="program checkbox">
-        <input type="checkbox" id="my_check_box">
-        <label for="my_check_box">sub</label>
-
-        <input type="checkbox" id="visa_btn">
-        <label for="visa_btn">visa</label>
-        <input type="checkbox" id="master_btn">
-        <label for="visa_btn">master</label>
-        <input type="checkbox" id="pay_btn">
-        <label for="visa_btn">pay</label>
-        <button type="submit" id="my_submit">submit</button>
-
-        <div id="sub_result">you are</div>
-        <div id="payment_result">paying with</div>
+        <div class="box N1">
+            <div>
+                <input type="radio" id="Kris_check" name="Pick_one">
+                <label for="Kris_check">Kris</label>
+                <input type="radio" id="Susie_check" name="Pick_one">
+                <label for="Susie_check">Susie</label>
+                <input type="radio" id="Ralsei_check" name="Pick_one">
+                <label for="Ralsei_check">Ralsei</label>
+                <input type="radio" id="Spamton_check" name="Pick_one">
+                <label for="Spamton_check">Spamton</label>    
+            </div>
+            <div class="button" type="submit" id="my_submit">submit</div>
+            
+            <div id="choice_result">Choose one</div>
+            
+        </div>
     </div>
 
     <div class="program random">
-        <div class="box">
+        <div class="box N2">
             <div>your random number is</div>
             <div class="random_num_style" id="random_num">?</div>
             <div class="button" id="random_btn">randomize</div>
