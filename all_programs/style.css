@@ -5,6 +5,19 @@ body{
     margin-right: 50px;
 }
 
+.header_anim{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    animation-name: header_text;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
 .program{
     display: grid;
     grid-template-columns: auto;
@@ -14,8 +27,9 @@ body{
 
 
 .image_holder{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
 }
 
 .box.N1{
@@ -49,6 +63,12 @@ body{
     align-items: center;
     justify-content: space-between;
     color: white;
+}
+
+.pulse_text{
+    animation-name: text_animation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 .random_num_style{
@@ -95,14 +115,14 @@ body{
     color: black;
 }
 
+@keyframes header_text{
+    0%{rotate: 0deg;}
+    50%{rotate: 0deg;}
+    75%{rotate: 0deg;}
+    100%{rotate: 360deg;}
+}
 
 @keyframes text_animation{
     0%{color: white;}
     100%{color: black;}
-}
-
-.RGB_text{
-    animation-name: text_animation;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
 }

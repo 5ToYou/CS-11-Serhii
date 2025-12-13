@@ -49,9 +49,9 @@ random_btn.onclick = function(){
     const audio_correct = new Audio("./audio/correct.mp3");
     audio_correct.play();
 
-    random_num.classList.remove("RGB_text");
+    random_num.classList.remove("pulse_text");
     setTimeout(function() {
-        random_num.classList.add("RGB_text");
+        random_num.classList.add("pulse_text");
     }, 0);
 
 
