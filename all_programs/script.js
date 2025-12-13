@@ -52,7 +52,7 @@ random_btn.onclick = function(){
     random_num.classList.remove("pulse_text");
     setTimeout(function() {
         random_num.classList.add("pulse_text");
-    }, 0);
+    }, 1);
 
 
 }

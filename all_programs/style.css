@@ -5,6 +5,13 @@ body{
     margin-right: 50px;
 }
 
+.global_grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    gap: 25px;
+}
+
 .header_anim{
     display: flex;
     justify-content: center;
@@ -33,21 +40,30 @@ body{
 }
 
 .box.N1{
-    width: 500px;
+    width: 550px;
     height: 300px;
     padding: 25px;
     border-radius: 10px;
     background-color: rgb(81, 80, 101);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.box.N1>div:first-child{
+    font-size: 1.5em;
 }
 .box.N1>div:last-child{
     font-size: 1.5em;
 }
 .box.N1>div>div:last-child{
     margin-top: 25px;
-    width: 100px;
+    width: 125px;
+}
+
+.radio{
+    width: 20px;
+    height: 20px;
 }
 
 
