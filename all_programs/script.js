@@ -1,3 +1,9 @@
+function change_HTML(url){
+    window.location.href = url;
+}
+
+document.getElementById("goto_page").onclick = () => {change_HTML("page.html");};
+
 //program checkbox
 const my_check_box = document.getElementById("my_check_box");
 const Kris_check = document.getElementById("Kris_check");

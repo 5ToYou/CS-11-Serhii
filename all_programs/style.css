@@ -1,8 +1,15 @@
 body{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: monospace;
     background-color: rgb(57, 60, 88);
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 0;
+}
+
+.top{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.46) 30%, rgba(0, 0, 0, 0.27) 65%, rgba(0, 0, 0, 0) 100%);
 }
 
 .global_grid{
@@ -10,15 +17,14 @@ body{
     grid-template-columns: auto auto auto;
     align-items: center;
     gap: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .header_anim{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
     color: white;
     font-size: 2.5em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: sans-serif;
     animation-name: header_text;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -32,35 +38,39 @@ body{
     margin-bottom: 100px;
 }
 
-
-.image_holder{
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-}
-
 .box.N1{
     width: 550px;
-    height: 300px;
+    height: 400px;
     padding: 25px;
     border-radius: 10px;
-    background-color: rgb(81, 80, 101);
     color: white;
+    text-shadow: 2px 1px rgb(3, 2, 80);
+    font-size: 1.25em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-image: url(./imgs/Background/Deltarune.png);
+    background-size: cover;
+    background-position: -100px;
 }
 .box.N1>div:first-child{
     font-size: 1.5em;
 }
 .box.N1>div:last-child{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     font-size: 1.5em;
 }
 .box.N1>div>div:last-child{
     margin-top: 25px;
-    width: 125px;
+    
 }
-
+.image_holder{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
 .radio{
     width: 20px;
     height: 20px;
@@ -80,13 +90,11 @@ body{
     justify-content: space-between;
     color: white;
 }
-
 .pulse_text{
     animation-name: text_animation;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
 }
-
 .random_num_style{
     font-size: 3em;
     letter-spacing: 5px;
@@ -115,20 +123,36 @@ body{
 }
 
 
-.button{
+.button.black{
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: fit-content;
+    height: fit-content;
     padding: 10px;
     background-color: black;
     color: white;
+    text-shadow: none;
     border-radius: 10px;
     user-select: none;
     cursor: pointer;
 }
-.button:hover{
+.button.black:hover{
     background-color: white;
     color: black;
+}
+
+.button.mini{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    text-shadow: none;
+    user-select: none;
+    cursor: pointer;
+}
+.button.mini:hover{
+    color: white;
 }
 
 @keyframes header_text{
