@@ -59,7 +59,29 @@ random_btn.onclick = function(){
     setTimeout(function() {
         random_num.classList.add("pulse_text");
     }, 1);
-
-
 }
 
+//program music
+
+const player_container = document.querySelector('.music-player');
+const audio_element = player_container.querySelector('audio');
+const btn_resume = player_container.querySelector('img');
+const btn_stop = player_container.querySelector("div");
+
+btn_resume.onclick = function(){
+    if(audio_element.paused){
+        audio_element.play(); 
+        btn_resume.src = "./imgs/pause_btn.png"
+        
+    }else{
+       audio_element.pause();
+       btn_resume.src = "./imgs/play_btn.png"
+    }
+    
+}
+
+btn_stop.onclick = function(){
+    audio_element.currentTime = 0;
+    audio_element.pause();
+    btn_resume.src = "./imgs/play_btn.png"
+}
