@@ -10,31 +10,99 @@
 //  { id: 2, name, shortDescription, ..., count: 2 },
 // ]
 const cart = []
+let globalProductsData = []; // NEW: Global variable to hold the fetched data
+
+// --- TASK 4: Local Storage Helper ---
+const saveCartToStorage = () => {
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+}
+
+// --- TASK 3: Centralized UI Update and Save ---
+const updateCartUI = (allProducts) => {
+    // 1. Update the cart counter
+    const cartCounter = document.querySelector('#cart-counter');
+    const sum = cart.reduce((acc, cur) => acc + cur.count, 0);
+    cartCounter.textContent = sum > 9 ? "+9" : sum;
+    cartCounter.classList.toggle('hide', sum === 0);
+
+    // 2. Re-render the Cart View List (if cart view is open)
+    const cartViewList = document.querySelector('.cart-view-list');
+    if (cartViewList) {
+        cartViewList.innerHTML = '';
+        const cartViewItems = cart.map(item => {
+            return createViewItem(item, allProducts);
+        });
+        cartViewList.append(...cartViewItems);
+    }
+    
+    // 3. Update the Total Price
+    setTotalPrice();
+
+    // 4. Update the main product list stock display and add button state
+    allProducts.forEach(product => {
+        const availableCountEl = document.querySelector(`.item[item-id="${product.id}"] .item-available-count`);
+        if (availableCountEl) {
+            availableCountEl.textContent = `Count: ${product.availableCount}`;
+        }
+        
+        const addButton = document.querySelector(`.item[item-id="${product.id}"] .item-add`);
+        if (addButton) {
+            if (product.availableCount <= 0) {
+                addButton.classList.add('disabled');
+            } else {
+                addButton.classList.remove('disabled');
+            }
+        }
+    });
+
+    // 5. Save the cart (Task 4)
+    saveCartToStorage();
+}
+
+// --- TASK 3: Cart Quantity/Stock Logic (used by + / - buttons) ---
+const updateCartItemCount = (itemId, change, allProducts) => {
+    const cartItemIndex = cart.findIndex(el => el.id === itemId);
+    const product = allProducts.find(el => el.id === itemId);
+    
+    if (cartItemIndex === -1 || !product) return;
+
+    const cartItem = cart[cartItemIndex];
+
+    // Check for increasing (+)
+    if (change > 0) {
+        if (product.availableCount <= 0) {
+            return; // Stop if no stock to add
+        }
+        product.availableCount -= 1; 
+        cartItem.count += 1;
+    } 
+    
+    // Check for decreasing (-)
+    else if (change < 0) {
+        if (cartItem.count <= 1) {
+            // Remove item entirely
+            cart.splice(cartItemIndex, 1);
+            product.availableCount += 1; // Return the item to stock
+        } else {
+            // Decrease count
+            cartItem.count -= 1;
+            product.availableCount += 1; // Return 1 item to stock
+        }
+    }
+    
+    // Refresh all UI elements
+    updateCartUI(allProducts);
+};
 
 const addCart = (item) => {
-    const cartCounter = document.querySelector('#cart-counter')
     const existedItem = cart.find(el => el.id == item.id)
     if (existedItem) {
         existedItem.count += 1
     } else {
         cart.push({ ...item, count: 1 });
     }
-    cartCounter.classList.remove('hide')
-
-    // let sum = 0;
-    // for (const el of cart) {
-    //     sum += el.count
-    // }
-
-    const sum = cart.reduce((acc, cur) => {
-        return acc + cur.count;
-    }, 0)
-
-    if (sum > 9) {
-        cartCounter.textContent = "+9"
-    } else {
-        cartCounter.textContent = sum
-    }
+    
+    // The rest of the counter update is now handled by updateCartUI
 }
 
 const createItem = (item) => {
@@ -82,20 +150,17 @@ const createItem = (item) => {
     add.textContent = `Add to cart`
     add.addEventListener('click', () => {
 
-        // item.availableCount = item.availableCount - 1
-        // item.availableCount--;
         if (item.availableCount == 0) {
             return;
         }
 
-        addCart(item)
+        addCart(item) // Data added to cart
 
-        item.availableCount -= 1
-        availableCount.textContent = `Count: ${item.availableCount}`
-
-        if (item.availableCount == 0) {
-            add.classList.add('disabled')
-        }
+        // The stock is adjusted here for immediate visual feedback on the main list
+        item.availableCount -= 1 
+        
+        // Call the centralized UI update to refresh all elements, including the counter and local storage
+        updateCartUI(globalProductsData); 
     })
 
     bottom.append(rating)
@@ -113,25 +178,11 @@ const createItem = (item) => {
 }
 
 const setCategoryValues = (data) => {
-    // [ 'c1', 'c2', 'c3' ]
-    // const allCategories = data.map(el => {
-    //     if (allCategories.includes(el)) {
-    //         return null;
-    //     }
-    //     return el.category
-    // }).filter(el => el != null)
-
     // allCategories => [ 'c1', 'c2', 'c1', 'c3' ]
     const allCategories = data.map(el => el.category)
 
-    // allCategoriesSet => {
-    //    c1: 1,
-    //    c2: 1,
-    //    c3: 1,
-    //    ...
-    // }
-    const allCategoriesSet = new Set(allCategories)
     // uniqueCategories => [ 'c1', 'c2', 'c3' ]
+    const allCategoriesSet = new Set(allCategories)
     const uniqueCategories = [...allCategoriesSet]
 
     const categoryNode = document.querySelector('.category select')
@@ -146,29 +197,6 @@ const setCategoryValues = (data) => {
 }
 
 const setExtraFunctions = (data) => {
-
-    // [
-    //   ['f1', 'f2', 'f3', ...],
-    //   ['f1', 'f2', 'f3', ...],
-    //   ['f1', 'f2', 'f3', ...]
-    //   ...
-    // ]
-    // const extraFunctions = data.map(el => el.extraFunctions)
-
-    // [
-    //  'f1', 'f2', 'f3', ...,
-    //  'f1', 'f2', 'f3', ...,
-    //  'f1', 'f2', 'f3', ...,
-    //   ...
-    // ]
-    // const extraFunctions = data.map(el => el.extraFunctions).flat()
-
-    // [
-    //  'f1', 'f2', 'f3', ...,
-    //  'f1', 'f2', 'f3', ...,
-    //  'f1', 'f2', 'f3', ...,
-    //   ...
-    // ]
     const allExtraFunctions = data.flatMap(el => el.extraFunctions)
     const uniqueExtraFunctions = [...new Set(allExtraFunctions)]
 
@@ -216,43 +244,52 @@ const filterItems = (data, params) => {
     data.forEach(el => {
         const item = document.querySelector(`.item[item-id="${el.id}"]`);
 
+        // 1. Search Filter
         if (searchText.length) {
             const isTextInName = el.name.toLowerCase()
                 .indexOf(searchText.toLowerCase()) !== -1
             const isTextInShorDescription = el.shortDescription.toLowerCase()
                 .indexOf(searchText.toLowerCase()) !== -1
             if (!isTextInName && !isTextInShorDescription) {
-                // el => add hide
                 item.classList.add('hide');
                 return;
             }
         }
 
-        // if (priceMin >= 0) {
-        //     if (el.price < priceMin) {
-        //         // el => add hide
-        //         item.classList.add('hide');
-        //         return;
-        //     }
-        // }
-
+        // 2. Price Min Filter
         if (priceMin >= 0 && el.price < priceMin) {
-            // el => add hide
             item.classList.add('hide');
             return;
         }
 
+        // 3. Price Max Filter
         if (priceMax >= 0 && el.price > priceMax) {
-            // el => add hide
             item.classList.add('hide');
             return;
         }
+        
+        // 4. Task 1: Category Filter
+        if (category && category !== 'all') {
+            if (el.category !== category) {
+                item.classList.add('hide');
+                return;
+            }
+        }
 
+        // 5. Task 2: Rating Filter
+        const selectedRating = parseFloat(rating); 
+        if (selectedRating > 0) { 
+            if (el.rating < selectedRating) { 
+                item.classList.add('hide');
+                return;
+            }
+        }
+
+        // 6. Extra Functions Filter
         if (extraFunctions && extraFunctions.length) {
             const result = extraFunctions
                 .every(extra => el.extraFunctions.includes(extra))
             if (!result) {
-                // el => add hide
                 item.classList.add('hide');
                 return;
             }
@@ -267,52 +304,37 @@ const setupFilters = (data) => {
     const searchInput = document.querySelector('#search-input')
     const priceMinInput = document.querySelector('#price-min')
     const priceMaxInput = document.querySelector('#price-max')
+    const categorySelect = document.querySelector('.category select')
 
-    searchInput.addEventListener('keyup', (event) => {
-        const text = event.target.value.trim().toLowerCase()
-        filterItems(data, {
-            searchText: text,
-            priceMin: parseInt(priceMinInput.value),
-            priceMax: parseInt(priceMaxInput.value),
-            extraFunctions: getAllSelectedExtraFunctions()
-        })
 
-    })
-
-    priceMinInput.addEventListener('keyup', (event) => {
-        filterItems(data, {
+    
+    const runFilters = () => {
+        const checkedRatingInput = document.querySelector('input[name="rating-selector"]:checked');
+        
+        const params = {
             searchText: searchInput.value.trim().toLowerCase(),
-            priceMin: parseInt(event.target.value),
-            priceMax: parseInt(priceMaxInput.value),
+            priceMin: parseInt(priceMinInput.value) || 0,
+            priceMax: parseInt(priceMaxInput.value) || Infinity, 
+            category: categorySelect.value,
+            rating: checkedRatingInput ? parseFloat(checkedRatingInput.value) : 0,
             extraFunctions: getAllSelectedExtraFunctions()
-        })
-    })
+        }
+        filterItems(data, params) 
+    }
 
-    priceMaxInput.addEventListener('keyup', (event) => {
-        filterItems(data, {
-            searchText: searchInput.value.trim().toLowerCase(),
-            priceMin: parseInt(priceMinInput.value),
-            priceMax: parseInt(event.target.value),
-            extraFunctions: getAllSelectedExtraFunctions()
-        })
-    })
+    searchInput.addEventListener('input', runFilters)
+    priceMinInput.addEventListener('input', runFilters)
+    priceMaxInput.addEventListener('input', runFilters)
+    categorySelect.addEventListener('change', runFilters)
 
-    document.querySelectorAll(
-        '.extra-functions-container input[type="checkbox"]'
-    ).forEach(checkboxInput => {
-        checkboxInput.addEventListener(
-            'change',
-            () => {
-                const extraFunctions = getAllSelectedExtraFunctions()
-                filterItems(data, {
-                    searchText: searchInput.value.trim(),
-                    priceMin: parseInt(priceMinInput.value),
-                    priceMax: parseInt(priceMaxInput.value),
-                    extraFunctions,
-                })
-            }
-        )
-    })
+    document.querySelectorAll('input[name="rating-selector"]').forEach(radio => {
+        radio.addEventListener('change', runFilters);
+    });
+
+    document.querySelectorAll('.extra-functions-container input[type="checkbox"]')
+        .forEach(checkboxInput => {
+            checkboxInput.addEventListener('change', runFilters)
+        })
 }
 
 const updateItemAvailabeCount = (id, count) => {
@@ -340,15 +362,27 @@ const createViewItem = (item, data) => {
     const itemCount = item.count
     const cartViewItemCount = document.createElement('div')
     cartViewItemCount.classList.add('count')
+    
     const cartViewItemCountDec = document.createElement('div')
     cartViewItemCountDec.classList.add('decrease-count')
     cartViewItemCountDec.textContent = "-"
+
+    cartViewItemCountDec.addEventListener('click', () => {
+        updateCartItemCount(item.id, -1, data);
+    })
+    
     const cartViewItemCountValue = document.createElement('div')
     cartViewItemCountValue.classList.add('count-value')
     cartViewItemCountValue.textContent = itemCount
+    
     const cartViewItemCountInc = document.createElement('div')
     cartViewItemCountInc.classList.add('increase-count')
     cartViewItemCountInc.textContent = "+"
+
+    cartViewItemCountInc.addEventListener('click', () => {
+        updateCartItemCount(item.id, 1, data);
+    })
+    
     cartViewItemCount.append(
         cartViewItemCountDec,
         cartViewItemCountValue,
@@ -363,16 +397,22 @@ const createViewItem = (item, data) => {
     cartViewItemRemoveItem.classList.add('remove-item')
     const cartViewItemRemoveItemImg = document.createElement('img')
     cartViewItemRemoveItemImg.src = "./imgs/delete.png"
+
     cartViewItemRemoveItemImg.addEventListener('click', () => {
         const index = cart.findIndex(el => el.id === item.id)
-        cart.splice(index, 1)
-        setTotalPrice()
-        // item.availableCount += item.count
-        const renderItem = data.find(el => el.id === item.id)
-        renderItem.availableCount += item.count;
-        updateItemAvailabeCount(item.id, renderItem.availableCount)
-        cartViewItem.remove()
+        if (index > -1) {
+            const removedItemCount = cart[index].count;
+            const product = data.find(el => el.id === item.id);
+            
+            if (product) {
+                product.availableCount += removedItemCount;
+            }
+
+            cart.splice(index, 1)
+            updateCartUI(data); 
+        }
     })
+
     cartViewItemRemoveItem.appendChild(cartViewItemRemoveItemImg)
 
     cartViewItem.append(
@@ -400,16 +440,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const response = await fetch('./electronic_items_dataset.json')
     const data = await response.json()
+    
+    globalProductsData = data;
+
+    const storedCart = localStorage.getItem('shoppingCart');
+    if (storedCart) {
+        const loadedCart = JSON.parse(storedCart);
+        cart.push(...loadedCart);
+
+        loadedCart.forEach(cartItem => {
+            const product = globalProductsData.find(p => p.id === cartItem.id);
+            if (product) {
+                product.availableCount -= cartItem.count;
+            }
+        });
+    }
+
+
     const items = document.querySelector('.items')
-    data.forEach(el => {
+    globalProductsData.forEach(el => {
         const div = createItem(el)
         items.appendChild(div)
     })
 
-    setCategoryValues(data)
-    setExtraFunctions(data)
+    setCategoryValues(globalProductsData)
+    setExtraFunctions(globalProductsData)
 
-    setupFilters(data)
+    setupFilters(globalProductsData)
 
     const cartViewWrapper = document.querySelector('.cart-view-wrapper')
     const cartViewList = document.querySelector('.cart-view-list')
@@ -434,14 +491,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.querySelector('.cart > div')
         .addEventListener('click', () => {
-            // Option A
             cartViewList.innerHTML = ''
-            // Option B
-            // document.querySelectorAll('.cart-view-item')
-            //     .forEach(elem => elem.remove())
 
             const cartViewItems = cart.map(item => {
-                return createViewItem(item, data)
+                return createViewItem(item, globalProductsData)
             })
             cartViewList.append(...cartViewItems)
 
@@ -450,8 +503,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             openCart()
         })
 
-    // setTimeout(() => {
+    updateCartUI(globalProductsData);
+
     document.querySelector('.loader')
         .classList.add('hide')
-    // }, 2500)
 })
