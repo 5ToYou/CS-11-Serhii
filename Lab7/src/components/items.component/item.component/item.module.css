@@ -1,0 +1,5 @@
+:root {
+    --saleBgcolor: #fa3a47;
+    --saleTextColor: #EDEADE;
+    --salePriceColor: var(--saleBgcolor);
+}
