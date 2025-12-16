@@ -97,26 +97,28 @@ player_containers.forEach(player_container => {
 
 //program dog_creator
 const creatures = document.querySelector(".creatures");
-const set_name = document.getElementById("set_name").value;
-const set_hp = document.getElementById("set_hp").value;
-const set_color = document.getElementById("set_color").value;
 const add_btn = document.getElementById("add_btn");
 
+
 function create_dog() {
+
+    const set_name = document.getElementById("set_name").value;
+    const set_hp = document.getElementById("set_hp").value;
+    const set_color = document.getElementById("set_color").value;
+
     const name = document.createElement("div");
     name.classList.add('name');
     name.textContent = set_name;
 
     const hp = document.createElement("div");
     hp.classList.add('hp');
-    hp.textContent = hp;
+    hp.textContent = set_hp;
 
     const dog = document.createElement("img");
     dog.classList.add('dog_holder');
     dog.src = "./imgs/dog.png"
 
-    const color = document.createElement("div");
-    color.textContent = color;
+    dog.style.backgroundColor = set_color;
 
     creatures.appendChild(name)
     creatures.appendChild(hp)
@@ -125,6 +127,8 @@ function create_dog() {
 }
 
 add_btn.onclick = function(){
+
+    
     create_dog()
 }
 
