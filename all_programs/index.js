@@ -100,35 +100,49 @@ const creatures = document.querySelector(".creatures");
 const add_btn = document.getElementById("add_btn");
 
 
-function create_dog() {
+function create_dog(set_name,set_hp,set_color) {
 
-    const set_name = document.getElementById("set_name").value;
-    const set_hp = document.getElementById("set_hp").value;
-    const set_color = document.getElementById("set_color").value;
+    const final_dog = document.createElement("div");
 
     const name = document.createElement("div");
     name.classList.add('name');
-    name.textContent = set_name;
+    name.textContent = `name: ${set_name}`;
 
     const hp = document.createElement("div");
     hp.classList.add('hp');
-    hp.textContent = set_hp;
+    hp.textContent = `hp: ${set_hp}`;
 
     const dog = document.createElement("img");
     dog.classList.add('dog_holder');
-    dog.src = "./imgs/dog.png"
 
+    dog.src = "./imgs/dog.png";
     dog.style.backgroundColor = set_color;
 
-    creatures.appendChild(name)
-    creatures.appendChild(hp)
-    creatures.appendChild(dog)
-    creatures.appendChild(color)
+    if(set_name === "tobyfox") {
+        dog.src = "./imgs/tobyfox_dog.gif";
+        name.textContent = "IT'S TV"
+        hp.textContent = "TIME!"
+    }
+    else if(set_name === "IM OLD") {
+        dog.src = "./imgs/IM_OLD.gif"
+        name.textContent = "IM OLD"
+        hp.textContent = "IM OLD"
+    }
+
+    final_dog.appendChild(name);
+    final_dog.appendChild(hp);
+    final_dog.appendChild(dog);
+    creatures.appendChild(final_dog);
 }
 
 add_btn.onclick = function(){
 
+    const set_name = document.getElementById("set_name").value.trim();
+    const set_hp = document.getElementById("set_hp").value.trim();
+    const set_color = document.getElementById("set_color").value.trim();
+
+    create_dog(set_name,set_hp,set_color)
+
     
-    create_dog()
 }
 

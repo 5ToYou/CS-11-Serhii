@@ -139,6 +139,10 @@ body{
     border-radius: 25px;
 }
 
+.creatures{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
 .dog_holder{
     width: 100px;
     height: 100px;
