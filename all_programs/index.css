@@ -131,6 +131,15 @@ body{
     margin: 10px;
 }
 
+
+.box.N4{
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 25px;
+}
+
 .button{
     display: flex;
     justify-content: center;
