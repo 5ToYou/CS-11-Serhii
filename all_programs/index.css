@@ -35,7 +35,6 @@ body{
     display: grid;
     grid-template-columns: auto;
     margin-top: 100px;
-    margin-bottom: 100px;
 }
 
 .box.N1{
@@ -138,6 +137,12 @@ body{
     background-color: white;
     padding: 25px;
     border-radius: 25px;
+}
+
+.dog_holder{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
 .button{

@@ -23,27 +23,27 @@ const audio_ralsei = new Audio("./audio/deltarune_explosion.mp3");
 
 my_submit.onclick = function(){
     
-    if(Kris_check.checked){
+    if(Kris_check.checked) {
         audio_kris.play();
         image.src = './imgs/Kris.png';
         image_holder.appendChild(image);
         choice_result.textContent = "You picked Kris"
-    }else if(Susie_check.checked){
+    } else if(Susie_check.checked) {
         audio_susie.play();
         image.src = './imgs/Susie.png';
         image_holder.appendChild(image);
         choice_result.textContent = "You picked Susie"
-    }else if(Ralsei_check.checked){
+    } else if(Ralsei_check.checked) {
         audio_ralsei.play();
         image.src = './imgs/Ralsei.webp';
         image_holder.appendChild(image);
         choice_result.textContent = "You picked Ralsei"
-    }else if(Spamton_check.checked){
+    } else if(Spamton_check.checked) {
         audio_spamton.play();
         image.src = './imgs/Spamton.png';
         image_holder.appendChild(image);
         choice_result.textContent = "You picked Spamton"
-    }else{
+    } else {
         choice_result.textContent = "Only one bro"
     }
 }
@@ -54,7 +54,7 @@ const max_number = 100;
 const random_btn = document.getElementById("random_btn");
 const random_num = document.getElementById("random_num");
 
-random_btn.onclick = function(){
+random_btn.onclick = function() {
     var random_answer = Math.floor(Math.random() * (max_number - min_number + 1));
     random_num.textContent = random_answer;
 
@@ -75,7 +75,7 @@ player_containers.forEach(player_container => {
     const btn_resume = player_container.querySelector('.resume');
     const btn_stop = player_container.querySelector("div:not(.resume)");
 
-    btn_resume.onclick = function(){
+    btn_resume.onclick = function() {
         if(audio_element.paused){
             audio_element.play(); 
             btn_resume.src = "./imgs/pause_btn.png"
@@ -87,7 +87,7 @@ player_containers.forEach(player_container => {
         
     }
 
-    btn_stop.onclick = function(){
+    btn_stop.onclick = function() {
         audio_element.currentTime = 0;
         audio_element.pause();
         btn_resume.src = "./imgs/play_btn.png"
@@ -96,3 +96,35 @@ player_containers.forEach(player_container => {
 });
 
 //program dog_creator
+const creatures = document.querySelector(".creatures");
+const set_name = document.getElementById("set_name").value;
+const set_hp = document.getElementById("set_hp").value;
+const set_color = document.getElementById("set_color").value;
+const add_btn = document.getElementById("add_btn");
+
+function create_dog() {
+    const name = document.createElement("div");
+    name.classList.add('name');
+    name.textContent = set_name;
+
+    const hp = document.createElement("div");
+    hp.classList.add('hp');
+    hp.textContent = hp;
+
+    const dog = document.createElement("img");
+    dog.classList.add('dog_holder');
+    dog.src = "./imgs/dog.png"
+
+    const color = document.createElement("div");
+    color.textContent = color;
+
+    creatures.appendChild(name)
+    creatures.appendChild(hp)
+    creatures.appendChild(dog)
+    creatures.appendChild(color)
+}
+
+add_btn.onclick = function(){
+    create_dog()
+}
+
