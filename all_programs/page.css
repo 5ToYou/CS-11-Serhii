@@ -1,0 +1,16 @@
+.colorful_case{
+    display: flex;
+}
+
+
+.colorful_case>div{
+    display: flex;
+    margin-left: 15px;
+    font-size: 5em;
+    font-weight: bold;
+}
+
+
+.letter:hover{
+    color: rgb(7, 139, 255);
+}
