@@ -13,6 +13,8 @@ const Spamton_check = document.getElementById("Spamton_check");
 const my_submit = document.getElementById("my_submit");
 const choice_result = document.getElementById("choice_result");
 const image_holder = document.getElementById("image_holder");
+const image = document.createElement("img");
+image.style.objectFit = "contain";
 
 const audio_kris = new Audio("./audio/deltarune_weapons_pull.mp3");
 const audio_susie = new Audio("./audio/deltarune_susie.wav");
@@ -23,19 +25,23 @@ my_submit.onclick = function(){
     
     if(Kris_check.checked){
         audio_kris.play();
-        image_holder.src = './imgs/Kris.png';
+        image.src = './imgs/Kris.png';
+        image_holder.appendChild(image);
         choice_result.textContent = "You picked Kris"
     }else if(Susie_check.checked){
         audio_susie.play();
-        image_holder.src = './imgs/Susie.png';
+        image.src = './imgs/Susie.png';
+        image_holder.appendChild(image);
         choice_result.textContent = "You picked Susie"
     }else if(Ralsei_check.checked){
         audio_ralsei.play();
-        image_holder.src = './imgs/Ralsei.webp';
+        image.src = './imgs/Ralsei.webp';
+        image_holder.appendChild(image);
         choice_result.textContent = "You picked Ralsei"
     }else if(Spamton_check.checked){
         audio_spamton.play();
-        image_holder.src = './imgs/Spamton.png';
+        image.src = './imgs/Spamton.png';
+        image_holder.appendChild(image);
         choice_result.textContent = "You picked Spamton"
     }else{
         choice_result.textContent = "Only one bro"
@@ -62,10 +68,7 @@ random_btn.onclick = function(){
 }
 
 //program music
-
-
 const player_containers = document.querySelectorAll('.music-player');
-
 
 player_containers.forEach(player_container => {
     const audio_element = player_container.querySelector('audio');

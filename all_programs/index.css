@@ -67,7 +67,7 @@ body{
 .image_holder{
     width: 150px;
     height: 150px;
-    object-fit: contain;
+    display: flex;
 }
 .radio{
     width: 20px;
