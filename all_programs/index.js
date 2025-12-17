@@ -98,22 +98,26 @@ player_containers.forEach(player_container => {
 //program dog_creator
 const creatures = document.querySelector(".creatures");
 const add_btn = document.getElementById("add_btn");
+const errors = document.getElementById("errors");
 
-
-function create_dog(set_name,set_hp,set_color) {
+function create_dog(set_name,set_bio,set_color) {
 
     const final_dog = document.createElement("div");
+    final_dog.classList.add('item');
 
     const name = document.createElement("div");
     name.classList.add('name');
-    name.textContent = `name: ${set_name}`;
+    name.textContent = set_name;
 
-    const hp = document.createElement("div");
-    hp.classList.add('hp');
-    hp.textContent = `hp: ${set_hp}`;
+    const bio = document.createElement("div");
+    bio.classList.add('bio');
+    bio.textContent = set_bio;
 
     const dog = document.createElement("img");
     dog.classList.add('dog_holder');
+
+    const delete_item = document.createElement("button");
+    delete_item.textContent = "delete";
 
     dog.src = "./imgs/dog.png";
     dog.style.backgroundColor = set_color;
@@ -121,28 +125,48 @@ function create_dog(set_name,set_hp,set_color) {
     if(set_name === "tobyfox") {
         dog.src = "./imgs/tobyfox_dog.gif";
         name.textContent = "IT'S TV"
-        hp.textContent = "TIME!"
+        bio.textContent = "TIME!"
     }
     else if(set_name === "IM OLD") {
         dog.src = "./imgs/IM_OLD.gif"
         name.textContent = "IM OLD"
-        hp.textContent = "IM OLD"
+        bio.textContent = "IM OLD"
+    }
+
+
+    delete_item.onclick = function() {
+        final_dog.remove();
     }
 
     final_dog.appendChild(name);
-    final_dog.appendChild(hp);
+    final_dog.appendChild(bio);
     final_dog.appendChild(dog);
+    final_dog.appendChild(delete_item);
     creatures.appendChild(final_dog);
 }
 
-add_btn.onclick = function(){
+add_btn.onclick = function() {
 
     const set_name = document.getElementById("set_name").value.trim();
-    const set_hp = document.getElementById("set_hp").value.trim();
+    const set_bio = document.getElementById("set_bio").value.trim();
     const set_color = document.getElementById("set_color").value.trim();
 
-    create_dog(set_name,set_hp,set_color)
 
+    if(set_name.length < 3) {
+        errors.textContent = "name too short";
+    }
+    else if(set_color.length === 0) {
+        errors.textContent = "set a color";
+    }
+
+    else {
     
+        errors.textContent = "";
+        create_dog(set_name,set_bio,set_color) 
+    }
+
 }
+
+
+
 

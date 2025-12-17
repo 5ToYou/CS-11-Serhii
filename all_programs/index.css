@@ -16,7 +16,7 @@ body{
     display: grid;
     grid-template-columns: auto auto auto;
     align-items: center;
-    gap: 25px;
+    gap: 50px;
     margin-left: 25px;
     margin-right: 25px;
 }
@@ -32,9 +32,6 @@ body{
 }
 
 .program{
-    display: grid;
-    grid-template-columns: auto;
-    margin-top: 100px;
 }
 
 .box.N1{
@@ -111,9 +108,6 @@ body{
     margin-top: 25px;
     margin-bottom: 25px;
 }
-.box.N3>div:last-child{
-
-}
 .box.N3>div:last-child>img{
     margin-bottom: 10px;
     width: 150px;
@@ -142,12 +136,35 @@ body{
 .creatures{
     display: grid;
     grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.item{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 175px;
+    height: 180px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(183, 183, 183);
+    text-align: center;
+}
+.name{
+    font-size: 1.25em;
+    margin-bottom: 5px;
+}
+.bio{
+    font-size: 1em;
+    margin-bottom: 5px;
 }
 .dog_holder{
     width: 100px;
     height: 100px;
     object-fit: contain;
+    align-self: center;
 }
+
 
 .button{
     display: flex;
