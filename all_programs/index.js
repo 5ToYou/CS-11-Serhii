@@ -104,6 +104,7 @@ function create_dog(set_name,set_bio,set_color) {
 
     const final_dog = document.createElement("div");
     final_dog.classList.add('item');
+    final_dog.style.backgroundColor = set_color;
 
     const name = document.createElement("div");
     name.classList.add('name');
@@ -119,8 +120,7 @@ function create_dog(set_name,set_bio,set_color) {
     const delete_item = document.createElement("button");
     delete_item.textContent = "delete";
 
-    dog.src = "./imgs/dog.png";
-    dog.style.backgroundColor = set_color;
+    dog.src = "./imgs/dog.png"
 
     if(set_name === "tobyfox") {
         dog.src = "./imgs/tobyfox_dog.gif";
@@ -130,7 +130,7 @@ function create_dog(set_name,set_bio,set_color) {
     else if(set_name === "IM OLD") {
         dog.src = "./imgs/IM_OLD.gif"
         name.textContent = "IM OLD"
-        bio.textContent = "IM OLD"
+        bio.textContent = "don't you remember me?"
     }
 
 
