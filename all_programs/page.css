@@ -10,7 +10,11 @@
     font-weight: bold;
 }
 
+@keyframes anim{
+    0%,100%{color: var(--dynamic-1comma);}
+}
 
-.letter:hover{
-    color: rgb(255, 0, 0);
+.anim{
+    animation-name: anim;
+    animation-duration: 0.5s;
 }
