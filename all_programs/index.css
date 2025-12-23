@@ -139,10 +139,8 @@ body{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
-
-    max-height: 375px;
+    max-height: 360px;
     overflow-y: auto;
-    
 }
 
 .item{
