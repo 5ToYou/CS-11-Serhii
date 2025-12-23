@@ -12,11 +12,13 @@ body{
     background: linear-gradient(180deg,rgba(0, 0, 0, 0.46) 30%, rgba(0, 0, 0, 0.27) 65%, rgba(0, 0, 0, 0) 100%);
 }
 
-.global_grid{
-    display: grid;
-    grid-template-columns: auto auto auto;
+.global_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 25px;
+    margin-top: 100px;
     margin-left: 25px;
     margin-right: 25px;
 }
