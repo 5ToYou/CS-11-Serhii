@@ -98,13 +98,14 @@ player_containers.forEach(player_container => {
 //program dog_creator
 const creatures = document.querySelector(".creatures");
 const add_btn = document.getElementById("add_btn");
+const clear_btn = document.getElementById("clear_btn");
 const errors = document.getElementById("errors");
 
-function create_dog(set_name,set_bio,set_color) {
+function create_element(set_name,set_bio,set_color,custom_image) {
 
-    const final_dog = document.createElement("div");
-    final_dog.classList.add('item');
-    final_dog.style.backgroundColor = set_color;
+    const final_element = document.createElement("div");
+    final_element.classList.add('item');
+    final_element.style.backgroundColor = set_color;
 
     const name = document.createElement("div");
     name.classList.add('name');
@@ -114,35 +115,44 @@ function create_dog(set_name,set_bio,set_color) {
     bio.classList.add('bio');
     bio.textContent = set_bio;
 
-    const dog = document.createElement("img");
-    dog.classList.add('dog_holder');
+    const Himage = document.createElement("img");
+    Himage.classList.add('img_holder');
 
     const delete_item = document.createElement("button");
     delete_item.textContent = "delete";
 
-    dog.src = "./imgs/dog.png"
+    if(custom_image) {
+        Himage.src = custom_image;
+    } else {
+        Himage.src = "./imgs/placeholder.png";
+    }
+    
 
     if(set_name === "tobyfox") {
-        dog.src = "./imgs/tobyfox_dog.gif";
+        Himage.src = "./imgs/tobyfox_dog.gif";
         name.textContent = "IT'S TV"
         bio.textContent = "TIME!"
     }
     else if(set_name === "IM OLD") {
-        dog.src = "./imgs/IM_OLD.gif"
+        Himage.src = "./imgs/IM_OLD.gif"
         name.textContent = "IM OLD"
         bio.textContent = "don't you remember me?"
     }
 
-
-    delete_item.onclick = function() {
-        final_dog.remove();
+    if(set_color === "black") {
+        name.style.color = "white";
+        bio.style.color = "white";
     }
 
-    final_dog.appendChild(name);
-    final_dog.appendChild(bio);
-    final_dog.appendChild(dog);
-    final_dog.appendChild(delete_item);
-    creatures.appendChild(final_dog);
+    delete_item.onclick = function() {
+        final_element.remove();
+    }
+
+    final_element.appendChild(name);
+    final_element.appendChild(bio);
+    final_element.appendChild(Himage);
+    final_element.appendChild(delete_item);
+    creatures.appendChild(final_element);
 }
 
 add_btn.onclick = function() {
@@ -150,23 +160,31 @@ add_btn.onclick = function() {
     const set_name = document.getElementById("set_name").value.trim();
     const set_bio = document.getElementById("set_bio").value.trim();
     const set_color = document.getElementById("set_color").value.trim();
+    const custom_image = document.getElementById("custom_image").value.trim();
 
 
-    if(set_name.length < 3) {
-        errors.textContent = "name too short";
+    if(set_name.length > 17) {
+        errors.textContent = "name is too big";
     }
-    else if(set_color.length === 0) {
-        errors.textContent = "set a color";
+    else if(set_name.length < 3) {
+        errors.textContent = "name is too short";
+    }
+    
+    else if(set_bio.length > 23) {
+        errors.textContent =  "bio is too big";
     }
 
     else {
     
         errors.textContent = "";
-        create_dog(set_name,set_bio,set_color) 
+        create_element(set_name,set_bio,set_color,custom_image) 
     }
 
 }
 
-
+clear_btn.onclick = function() {
+    creatures.innerHTML = "";
+    errors.textContent = "";
+}
 
 

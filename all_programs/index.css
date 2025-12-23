@@ -127,7 +127,7 @@ body{
 
 .box.N4{
     width: 800px;
-    height: 275px;
+    height: 450px;
     background-color: white;
     padding: 25px;
     border-radius: 25px;
@@ -137,6 +137,10 @@ body{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
+
+    max-height: 375px;
+    overflow-y: auto;
+    
 }
 
 .item{
@@ -158,7 +162,7 @@ body{
     font-size: 1em;
     margin-bottom: 5px;
 }
-.dog_holder{
+.img_holder{
     width: 100px;
     height: 100px;
     object-fit: contain;
