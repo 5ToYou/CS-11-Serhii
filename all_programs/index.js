@@ -4,6 +4,10 @@ function change_HTML(url){
 
 document.getElementById("goto_page").onclick = () => {change_HTML("page.html");};
 
+function isInside(val, min, max) {
+    return val >= min && val <= max;
+}
+
 //program checkbox
 const my_check_box = document.getElementById("my_check_box");
 const Kris_check = document.getElementById("Kris_check");
@@ -192,6 +196,7 @@ clear_btn.onclick = function() {
 let activeElement = null;
 const container = document.getElementById("container_N5");
 
+
 function startDragging(event, element) {
     activeElement = element;
     activeElement.style.position = "absolute";
@@ -202,9 +207,13 @@ function stopDragging() {
 }
 
 function mousemove(event) {
+
+    const box = document.getElementById("box");
+    const special_text = document.getElementById("special_text");
+
     if (activeElement) {
 
-        const rect = container.getBoundingClientRect();  
+        const rect = container.getBoundingClientRect();
 
         let x = event.clientX - rect.left - (activeElement.offsetWidth / 2);
         let y = event.clientY - rect.top - (activeElement.offsetHeight / 2);
@@ -219,7 +228,15 @@ function mousemove(event) {
 
         activeElement.style.left = finalX + "px";
         activeElement.style.top = finalY + "px";
+
+        if(isInside(finalX, 850, 900) && isInside(finalY, 0, 20)) {
+            special_text.textContent = "HRPOJHPOJPOHR";
+        } else {
+            special_text.textContent = "";
+        }
     }
+
+    console.log("X" + event.clientX, "Y" + event.clientY)
 }
 
 window.addEventListener('mousemove', mousemove);
