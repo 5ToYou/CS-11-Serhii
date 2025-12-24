@@ -102,15 +102,17 @@
 
         <div class="program dragging">
             <div id="container_N5" class="container N5">
-                <div>drag this boxes</div>
-                <div id="special_text"></div>
+                <div id="status">drag this boxes until you feel something...</div>
+                <div id="special_text_1"></div>
+                <div id="special_text_2"></div>
+                <div id="special_text_3"></div>
+                <div id="special_text_4"></div>
 
-                <div id="box" class="box blue" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
-                <div id="box" class="box red" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
-                <div id="box" class="box pink" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
-                <div id="box" class="box green" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box blue" data-target="special_text_1" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box red" data-target="special_text_2" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box pink" data-target="special_text_3" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box green" data-target="special_text_4" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
 
-                <div class="box redplace"></div>
             </div>
         </div>
         

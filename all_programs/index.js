@@ -196,6 +196,10 @@ clear_btn.onclick = function() {
 let activeElement = null;
 const container = document.getElementById("container_N5");
 
+let check_1 = false;
+let check_2 = false;
+let check_3 = false;
+let check_4 = false;
 
 function startDragging(event, element) {
     activeElement = element;
@@ -207,9 +211,6 @@ function stopDragging() {
 }
 
 function mousemove(event) {
-
-    const box = document.getElementById("box");
-    const special_text = document.getElementById("special_text");
 
     if (activeElement) {
 
@@ -229,14 +230,53 @@ function mousemove(event) {
         activeElement.style.left = finalX + "px";
         activeElement.style.top = finalY + "px";
 
-        if(isInside(finalX, 850, 900) && isInside(finalY, 0, 20)) {
-            special_text.textContent = "HRPOJHPOJPOHR";
-        } else {
-            special_text.textContent = "";
+        const targetId = activeElement.getAttribute("data-target");
+        const targetTextElement = document.getElementById(targetId);
+
+        if (activeElement.classList.contains("blue")) {
+            if (isInside(finalX, 850, 900) && isInside(finalY, 0, 20)) {
+                targetTextElement.textContent = "NICE";
+                check_1 = true;
+            } else {
+                targetTextElement.textContent = "";
+                check_1 = false;
+            }
+        } 
+        else if (activeElement.classList.contains("red")) {
+            if (isInside(finalX, 200, 250) && isInside(finalY, 280, 320)) {
+                targetTextElement.textContent = "KEEP UP";
+                check_2 = true;
+            } else {
+                targetTextElement.textContent = "";
+                check_2 = false;
+            }
         }
+        else if (activeElement.classList.contains("pink")) {
+            if (isInside(finalX, 500, 550) && isInside(finalY, 350, 400)) {
+                targetTextElement.textContent = "UR A GOD";
+                check_3 = true;
+            } else {
+                targetTextElement.textContent = "";
+                check_3 = false;
+            }
+        }
+        else if (activeElement.classList.contains("green")) {
+            if (isInside(finalX, 300, 350) && isInside(finalY, 0, 50)) {
+                targetTextElement.textContent = "ALMOST";
+                check_4 = true;
+            } else {
+                targetTextElement.textContent = "";
+                check_4 = false;
+            }
+        }
+
     }
 
-    console.log("X" + event.clientX, "Y" + event.clientY)
+    if(check_1 && check_2 && check_3 && check_4){
+        document.getElementById("status").classList.add("status");
+        document.getElementById("status").textContent = "PUZZLE SOLVED!";
+    }
+    
 }
 
 window.addEventListener('mousemove', mousemove);

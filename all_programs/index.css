@@ -195,6 +195,13 @@ body{
     background-color: green;
 }
 
+.status{
+    font-size: 4em;
+    color: gold;
+    font-weight: bold;
+    font-family: 'comic sans';
+}
+
 .button{
     display: flex;
     justify-content: center;
