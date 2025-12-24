@@ -17,7 +17,7 @@
     <div class="global_flex">
 
         <div class="program checkbox">
-            <div class="box N1">
+            <div class="container N1">
                 <div>
                     <input class="radio" type="radio" id="Kris_check" name="Pick_one">
                     <label for="Kris_check">Kris</label>
@@ -40,7 +40,7 @@
 
 
         <div class="program random">
-            <div class="box N2">
+            <div class="container N2">
                 <div>your random number is</div>
                 <div class="random_num_style" id="random_num">?</div>
                 <div class="button black" id="random_btn">randomize</div>
@@ -49,7 +49,7 @@
 
 
         <div class="program music">
-            <div class="box N3">
+            <div class="container N3">
                 <div>
                     <div class="music-player">
                         <img src="./imgs/play_btn.png" class="button resume"></img>
@@ -77,7 +77,7 @@
 
 
         <div class="program cool_creator">
-            <div class="box N4">
+            <div class="container N4">
                 <div>Cool creator</div>
                 <div>tip: use tobyfox as name</div>
                 <div>trick: use IM OLD as name</div>
@@ -99,6 +99,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="program dragging">
+            <div id="container_N5" class="container N5">
+                <div>drag this boxes</div>
+
+                <div class="box blue" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box red" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box pink" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+                <div class="box green" onmousedown="startDragging(event, this)" onmouseup="stopDragging()"></div>
+
+            </div>
+        </div>
+        
 
     </div>
 

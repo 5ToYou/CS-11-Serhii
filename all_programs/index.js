@@ -188,3 +188,38 @@ clear_btn.onclick = function() {
 }
 
 
+//program dragging
+let activeElement = null;
+const container = document.getElementById("container_N5");
+
+function startDragging(event, element) {
+    activeElement = element;
+    activeElement.style.position = "absolute";
+}
+
+function stopDragging() {
+    activeElement = null;
+}
+
+function mousemove(event) {
+    if (activeElement) {
+
+        const rect = container.getBoundingClientRect();  
+
+        let x = event.clientX - rect.left - (activeElement.offsetWidth / 2);
+        let y = event.clientY - rect.top - (activeElement.offsetHeight / 2);
+
+        const minX = 0;
+        const minY = 0;
+        const maxX = rect.width - activeElement.offsetWidth;
+        const maxY = rect.height - activeElement.offsetHeight;
+
+        let finalX = Math.max(minX, Math.min(x, maxX));
+        let finalY = Math.max(minY, Math.min(y, maxY));
+
+        activeElement.style.left = finalX + "px";
+        activeElement.style.top = finalY + "px";
+    }
+}
+
+window.addEventListener('mousemove', mousemove);
