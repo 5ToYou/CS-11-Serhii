@@ -201,12 +201,26 @@ let check_2 = false;
 let check_3 = false;
 let check_4 = false;
 
+let offsetX = 0;
+let offsetY = 0;
+
 function startDragging(event, element) {
     activeElement = element;
     activeElement.style.position = "absolute";
+
+    const rect = activeElement.getBoundingClientRect();
+
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+
+    window.addEventListener('mousemove', mousemove);
+    window.addEventListener('mouseup', stopDragging);
 }
 
 function stopDragging() {
+    window.removeEventListener('mousemove', mousemove);
+    window.removeEventListener('mouseup', stopDragging);
+
     activeElement = null;
 }
 
@@ -216,8 +230,8 @@ function mousemove(event) {
 
         const rect = container.getBoundingClientRect();
 
-        let x = event.clientX - rect.left - (activeElement.offsetWidth / 2);
-        let y = event.clientY - rect.top - (activeElement.offsetHeight / 2);
+        let x = event.clientX - rect.left - offsetX;
+        let y = event.clientY - rect.top - offsetY;
 
         const minX = 0;
         const minY = 0;
@@ -278,5 +292,3 @@ function mousemove(event) {
     }
     
 }
-
-window.addEventListener('mousemove', mousemove);
