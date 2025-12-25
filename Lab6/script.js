@@ -10,22 +10,22 @@
 //  { id: 2, name, shortDescription, ..., count: 2 },
 // ]
 const cart = []
-let globalProductsData = []; // NEW: Global variable to hold the fetched data
+let globalProductsData = [];
 
-// --- TASK 4: Local Storage Helper ---
+
 const saveCartToStorage = () => {
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
 }
 
-// --- TASK 3: Centralized UI Update and Save ---
+
 const updateCartUI = (allProducts) => {
-    // 1. Update the cart counter
+
     const cartCounter = document.querySelector('#cart-counter');
     const sum = cart.reduce((acc, cur) => acc + cur.count, 0);
     cartCounter.textContent = sum > 9 ? "+9" : sum;
     cartCounter.classList.toggle('hide', sum === 0);
 
-    // 2. Re-render the Cart View List (if cart view is open)
+
     const cartViewList = document.querySelector('.cart-view-list');
     if (cartViewList) {
         cartViewList.innerHTML = '';
@@ -35,10 +35,10 @@ const updateCartUI = (allProducts) => {
         cartViewList.append(...cartViewItems);
     }
     
-    // 3. Update the Total Price
+
     setTotalPrice();
 
-    // 4. Update the main product list stock display and add button state
+
     allProducts.forEach(product => {
         const availableCountEl = document.querySelector(`.item[item-id="${product.id}"] .item-available-count`);
         if (availableCountEl) {
@@ -55,11 +55,11 @@ const updateCartUI = (allProducts) => {
         }
     });
 
-    // 5. Save the cart (Task 4)
+
     saveCartToStorage();
 }
 
-// --- TASK 3: Cart Quantity/Stock Logic (used by + / - buttons) ---
+
 const updateCartItemCount = (itemId, change, allProducts) => {
     const cartItemIndex = cart.findIndex(el => el.id === itemId);
     const product = allProducts.find(el => el.id === itemId);
@@ -68,29 +68,25 @@ const updateCartItemCount = (itemId, change, allProducts) => {
 
     const cartItem = cart[cartItemIndex];
 
-    // Check for increasing (+)
+
     if (change > 0) {
         if (product.availableCount <= 0) {
-            return; // Stop if no stock to add
+            return;
         }
         product.availableCount -= 1; 
         cartItem.count += 1;
     } 
-    
-    // Check for decreasing (-)
+
     else if (change < 0) {
         if (cartItem.count <= 1) {
-            // Remove item entirely
             cart.splice(cartItemIndex, 1);
-            product.availableCount += 1; // Return the item to stock
+            product.availableCount += 1;
         } else {
-            // Decrease count
             cartItem.count -= 1;
-            product.availableCount += 1; // Return 1 item to stock
+            product.availableCount += 1;
         }
     }
     
-    // Refresh all UI elements
     updateCartUI(allProducts);
 };
 
@@ -102,7 +98,7 @@ const addCart = (item) => {
         cart.push({ ...item, count: 1 });
     }
     
-    // The rest of the counter update is now handled by updateCartUI
+
 }
 
 const createItem = (item) => {
@@ -154,12 +150,8 @@ const createItem = (item) => {
             return;
         }
 
-        addCart(item) // Data added to cart
-
-        // The stock is adjusted here for immediate visual feedback on the main list
+        addCart(item)
         item.availableCount -= 1 
-        
-        // Call the centralized UI update to refresh all elements, including the counter and local storage
         updateCartUI(globalProductsData); 
     })
 
@@ -178,10 +170,8 @@ const createItem = (item) => {
 }
 
 const setCategoryValues = (data) => {
-    // allCategories => [ 'c1', 'c2', 'c1', 'c3' ]
     const allCategories = data.map(el => el.category)
 
-    // uniqueCategories => [ 'c1', 'c2', 'c3' ]
     const allCategoriesSet = new Set(allCategories)
     const uniqueCategories = [...allCategoriesSet]
 
@@ -244,7 +234,6 @@ const filterItems = (data, params) => {
     data.forEach(el => {
         const item = document.querySelector(`.item[item-id="${el.id}"]`);
 
-        // 1. Search Filter
         if (searchText.length) {
             const isTextInName = el.name.toLowerCase()
                 .indexOf(searchText.toLowerCase()) !== -1
@@ -256,19 +245,16 @@ const filterItems = (data, params) => {
             }
         }
 
-        // 2. Price Min Filter
         if (priceMin >= 0 && el.price < priceMin) {
             item.classList.add('hide');
             return;
         }
 
-        // 3. Price Max Filter
         if (priceMax >= 0 && el.price > priceMax) {
             item.classList.add('hide');
             return;
         }
         
-        // 4. Task 1: Category Filter
         if (category && category !== 'all') {
             if (el.category !== category) {
                 item.classList.add('hide');
@@ -276,7 +262,6 @@ const filterItems = (data, params) => {
             }
         }
 
-        // 5. Task 2: Rating Filter
         const selectedRating = parseFloat(rating); 
         if (selectedRating > 0) { 
             if (el.rating < selectedRating) { 
@@ -285,7 +270,6 @@ const filterItems = (data, params) => {
             }
         }
 
-        // 6. Extra Functions Filter
         if (extraFunctions && extraFunctions.length) {
             const result = extraFunctions
                 .every(extra => el.extraFunctions.includes(extra))
